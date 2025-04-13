@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>login</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="login-container">
+		<h2>Yutopia</h2>
+		<div class="horizontal-bar"></div>
+		<a href="https://discord.com/api/oauth2/authorize?client_id=TON_CLIENT_ID&redirect_uri=TON_REDIRECT_URI&response_type=code&scope=identify" class="discord-btn">
+			<img src="assets/discord.png" alt="Discord logo"> <!-- // TODO : Use a white for discord -->
+			<span>Se connecter avec Discord</span>
+		</a>
+	</div>
+	<script>
+		const btn = document.querySelector('.discord-btn');
+	
+		btn.addEventListener('mousemove', (e) => {
+			const rect = btn.getBoundingClientRect();
+			const x = e.clientX - rect.left;
+			const y = e.clientY - rect.top;
+	
+			const centerX = rect.width / 2;
+			const centerY = rect.height / 2;
+	
+			const rotateX = -(y - centerY) / 8;
+			const rotateY = (x - centerX) / 8;
+	
+			btn.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+		});
+	
+		btn.addEventListener('mouseleave', () => {
+			btn.style.transform = 'rotateX(0deg) rotateY(0deg)';
+			btn.style.transition = 'transform 0.2s ease';
+		});
+	
+		btn.addEventListener('mouseenter', () => {
+			btn.style.transition = 'none';
+		});
+	</script>
+	<footer class="footer">
+		<div class="footer-links">
+			<a href="https://discord.gg/gxrecC8VRG" target="_blank">Discord</a>
+			<a href="https://twitter.com/[SOON]" target="_blank">Twitter</a>
+			<a href="https://youtube.com/[SOON]" target="_blank">YouTube</a>
+		</div>
+		<p>Designed & produced by: Gopmyc</p>
+		<p>&copy; 2025 Yutopia. All rights reserved.</p>
+	</footer>	
+</body>
+</html>
