@@ -4,9 +4,7 @@ async function loadServers()
 	{
         const res	=	await fetch('/api/servers');
         if (!res.ok)
-			{throw new Error('Error retrieving servers')
-
-			}
+			{throw new Error('Error retrieving servers')}
         const data	=	await res.json();
         return data;
     }
